@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ex6.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans&family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <div class="nav-link" id="navLink">
+                <div class="home">
+                    <a href="#" class="home"><p>SIDE-BAR</p></a>
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                </div>
+                <ul>
+                    <li><a href="#"><p>Home</p></a></li>
+                    <li><a href="#"><p>About</p></a></li>
+                    <li><a href="#"><p>Projects</p></a></li>
+                    <li><a href="#"><p>Contact</p></a></li>
+                </ul>
+                <div class="icon">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-linkedin"></i>
+                    <i class="fa fa-instagram"></i>
+                    <i class="fa fa-diamond"></i>
+                </div>
+            </div> 
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </section>
+    </section>
+    <script>
+        var navLink = document.getElementById("navLink");
+        function showMenu(){
+            navLink.style.left = "0";
+        }
+        function hideMenu(){
+            navLink.style.left = "-80%";
+        }
+    </script>
+</body>
+</html>

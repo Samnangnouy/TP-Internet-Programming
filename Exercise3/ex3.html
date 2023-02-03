@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ex3.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>Counter</h1>
+        </div>
+        <div id="number">0</div>
+        <div class="botton">
+            <button type="button" id="decrease" onclick="decreaseNum()" class="btn">DECREASE</button>
+            <button type="button" id="reset" onclick="resetNum()" class="btn">RESET</button>
+            <button type="button" id="increase" onclick="increaseNum()" class="btn">INCREASE</button>
+        </div>
+    </div>
+    <script>
+        class Counter {
+            number = 0
+            constructor(number){
+                if (number) this.number = number
+            }
+
+            decrease(){
+                return this.number --
+            }
+
+            increase(){
+                return this.number ++
+            }
+
+            reset(){
+                return this.number = 0
+            }
+        }
+        const myCounter = new Counter(localStorage.getItem("counterNum"));
+        const mainNum = document.getElementById('number');
+        function decreaseNum(){
+            document.getElementById('number').style.color = 'red'
+            myCounter.decrease()
+            displayNum()
+        }
+        function resetNum(){
+            document.getElementById('number').style.color = 'black'
+            myCounter.reset()
+            displayNum()
+        }
+
+        function increaseNum(){
+            document.getElementById('number').style.color = 'green'
+            myCounter.increase()
+            displayNum()
+        }
+
+        function displayNum(){
+            localStorage.setItem("counterNum", myCounter.number);
+            mainNum.innerHTML = localStorage.getItem("counterNum");
+        }
+    </script>
+</body>
+</html>

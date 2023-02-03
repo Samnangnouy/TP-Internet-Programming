@@ -1,0 +1,112 @@
+.wrapper{
+    margin: auto;
+    width: 100%;
+    height: auto;
+    background-color: aquamarine;
+    border: 3px solid black;
+}
+.header{
+    width: 100%;
+    height: 70px;
+}
+.header h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.under-line{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+.under{
+    width: 60px;
+    height: 3px;
+    margin-top: 0;
+    background-color: orange;
+}
+.btn-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-bar button{
+    width: 100px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid orange;
+    color: orange;
+}
+.box-info{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+.box-img{
+    margin-top: 20px;
+    margin-left: 40px;
+    width: 30%;
+    height: 200px;
+    border-radius: 10px;
+    border: 1px solid orange;
+}
+.box-img img{
+    width: 100%;
+    border-radius: 10px;
+}
+.info{
+    margin-right: 40px;
+    width: 60%;
+    height: 200px;
+}
+.info-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.info-head h4{
+    margin: 0;
+}
+.info-head p{
+    color: orange;
+}
+.line{
+    width: 100%;
+    height: 1px;
+    background-color: red;
+}
+@media screen and (max-width: 656px){
+    .btn-bar button{
+        width: 100px;
+        height: 30px;
+        margin: 5px;
+        border-radius: 5px;
+        border: 1px solid orange;
+        margin-bottom: 20px;
+    }
+    .box-info{
+        flex-wrap: wrap;
+        margin-left: 37px;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .box-img{
+        margin-left: 37px;
+        width: 80%;
+        height: 250px;
+        border-radius: 10px;
+        border: 1px solid orange;
+    }
+    .info{
+        margin-left: 37px;
+        width: 80%;
+        height: 200px;
+    }
+    .box-img img{
+        width: 100%;
+        border-radius: 10px;
+    }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ex4.css">
+</head>
+<body>
+    <div class="wrapper">
+        <di class="container">
+            <div class="header-text">Random Color Generator</div>
+            <div class="color-change">
+                <div class="contain">
+                    <h3>Background Color :</h3>
+                    <p id="colorCode">##</p>
+                </div>
+                <div class="button">
+                    <button id="generate" class="btn1">GENERATE</button>
+                    <button id="reset" class="btn1">RESET</button>
+                </div>
+                <div class="color-generate">
+                    <!-- List Color here -->
+                </div>
+            </div>
+        </di>
+    </div>
+    <script>
+        class Color {
+            colorType = ''
+            records = []
+            constructor(type, records){
+                this.colorType = type
+                if(records) this.records = records
+            }
+
+            generate(){
+                this.records.push(this.getRandomNumber())
+            }
+
+            getRandomNumber(){
+                return Math.floor(Math.random()*16777215).toString(16);
+            }
+
+            getRecords(){
+                return this.records
+            }
+
+            reset(){
+                return this.records = []
+            }
+        }
+
+        FetchAll = function () {
+            var data = '';
+
+            if (myColor.getRecords().length > 0) {
+                for (i = 0; i < myColor.getRecords().length; i++) {
+                    data += `
+                    <div class="color-code">#${myColor.getRecords()[i]} <div class="box-color" style="background-color: #${myColor.getRecords()[i]};"></div></div>
+                    `;
+                    document.getElementById("colorCode").innerHTML = `#${myColor.getRecords()[i]}`
+                    ChangeBG(myColor.getRecords()[i])
+                }
+            }
+            localStorage.setItem("generateColor", JSON.stringify(myColor.getRecords()));
+            
+
+            
+            return document.querySelector(".color-generate").innerHTML = data;
+        };
+
+        ChangeBG = function (color){
+            document.getElementById("colorCode").style.color = "#" + color
+            document.querySelector(".color-change").style.backgroundColor = "#" + color
+        }
+
+        const getColors = localStorage.getItem("generateColor")
+        let myColor = new Color("hex", JSON.parse(getColors))
+        let genButton = document.getElementById('generate');
+        let resetButton = document.getElementById('reset');
+
+        genButton.addEventListener("click", function(){
+            myColor.generate()
+            FetchAll()
+        });
+
+        resetButton.addEventListener("click", function(){
+            document.getElementById("colorCode").innerHTML = ``
+            ChangeBG("ffffff")
+            myColor.reset()
+            FetchAll()
+        });
+
+        FetchAll();
+    </script>
+</body>
+</html>
